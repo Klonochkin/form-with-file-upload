@@ -10,6 +10,42 @@
   </head>
 
   <body>
-    <main class="main"></main>
+    <main class="main">
+      <form
+        class="form_content"
+        action="/sendForm"
+        method="post"
+        enctype="multipart/form-data"
+        id="form"
+      >
+        <fieldset class="form__fieldset">Форма отправки</fieldset>
+        <label>
+          Имя
+          <input
+            id="first_name"
+            name="first_name"
+            type="text"
+            placeholder="Иван"
+          />
+        </label>
+        <label>
+          Фамилия
+          <input
+            id="last_name"
+            name="last_name"
+            type="text"
+            placeholder="Ивано"
+          />
+        </label>
+        <label>
+          Файлы
+          <input id="files" name="files" type="file" multiple />
+        </label>
+        <div>
+          <button>Отправить</button>
+        </div>
+      </form>
+    </main>
+    <script src="/static/scripts/send.js"></script>
   </body>
 </html>
