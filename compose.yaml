@@ -1,0 +1,27 @@
+services:
+  mongodb:
+    image: mongo
+    restart: on-failure
+    ports:
+      - 27017:27017
+
+  py-app:
+    build: .
+    restart: on-failure
+    volumes:
+      - myfiles:/app/static/files
+    ports:
+      - 8000:8000
+    develop:
+      watch:
+        - action: sync
+          path: ./templates
+          target: /app/templates
+        - action: sync
+          path: ./static
+          target: /app/static
+        - action: sync
+          path: ./app.py
+          target: /app/app.py
+volumes:
+  myfiles:
