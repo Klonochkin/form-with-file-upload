@@ -9,7 +9,7 @@ services:
     build: .
     restart: on-failure
     volumes:
-      - myfiles:/app/static/files
+      - myfiles:/app/templates/static/files
     ports:
       - 8000:8000
     develop:

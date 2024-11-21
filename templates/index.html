@@ -19,7 +19,7 @@
         id="form"
       >
         <fieldset class="form__fieldset">Форма отправки</fieldset>
-        <label class="form__label">
+        <!-- <label class="form__label">
           Имя
           <input
             class="form__input"
@@ -27,18 +27,22 @@
             name="first_name"
             type="text"
             placeholder="Иван"
-          />
-        </label>
+          /> -->
+        <!-- </label> -->
         <label class="form__label">
           Фамилия
           <input
             class="form__input"
             id="last_name"
-            name="last_name"
+            name="hello"
             type="text"
             placeholder="Иванов"
           />
         </label>
+        <select name="device">
+          <option value="Компьютер">Компьютер</option>
+          <option value="Принтер">Принтер</option>
+        </select>
         <div class="form__label">
           <label>
             Файлы
@@ -54,10 +58,20 @@
             />
           </label>
         </div>
+        <div class="form__label">
+          <label>
+            Файлы
+            <span class="form__button form__button-upload-file">
+              загрузить
+            </span>
+            <input class="visually-hidden" name="docs" type="file" multiple />
+          </label>
+        </div>
         <div>
           <button class="form__button form__button-submit">Отправить</button>
         </div>
       </form>
+      <pre id="data"></pre>
     </main>
     <script src="/static/scripts/send.js"></script>
   </body>
