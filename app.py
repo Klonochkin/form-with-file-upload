@@ -29,15 +29,23 @@ async def welcome(request:Request):
 
 
 @app.post("/sendForm")
-async def upload_files(first_name: str = Form(...),last_name: str = Form(...), files: Optional[list[UploadFile]] = File(None)):
-    print(f"Имя: {first_name}")
-    print(f"Фамлиия: {last_name}")
+async def upload_files(request: Request):
+    form_data = await request.form()
+    all_keys = list(form_data.keys())
+
+    fieldName = ''
+    for i in range(all_keys.__len__()):
+        if not isinstance(form_data.get(all_keys[i]), str):
+            fieldName = all_keys[i]
+
+    files = form_data.getlist(fieldName) 
 
     if files:
         for file in files:
             await upload_file(file)
-    
-    return {"first_name": first_name, "last_name": last_name}
+            print(file)
+
+    return 
 
 async def upload_file(file: UploadFile):
     new_name = "".join([alphabet[random.randint(0, len(alphabet) - 1)] for _ in range(60)])
