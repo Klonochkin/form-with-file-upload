@@ -19,30 +19,43 @@
         id="form"
       >
         <fieldset class="form__fieldset">Форма отправки</fieldset>
-        <label>
+        <label class="form__label">
           Имя
           <input
+            class="form__input"
             id="first_name"
             name="first_name"
             type="text"
             placeholder="Иван"
           />
         </label>
-        <label>
+        <label class="form__label">
           Фамилия
           <input
+            class="form__input"
             id="last_name"
             name="last_name"
             type="text"
-            placeholder="Ивано"
+            placeholder="Иванов"
           />
         </label>
-        <label>
-          Файлы
-          <input id="files" name="files" type="file" multiple />
-        </label>
+        <div class="form__label">
+          <label>
+            Файлы
+            <span class="form__button form__button-upload-file">
+              загрузить
+            </span>
+            <input
+              class="visually-hidden"
+              id="files"
+              name="files"
+              type="file"
+              multiple
+            />
+          </label>
+        </div>
         <div>
-          <button>Отправить</button>
+          <button class="form__button form__button-submit">Отправить</button>
         </div>
       </form>
     </main>
